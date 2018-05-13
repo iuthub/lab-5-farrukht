@@ -1,10 +1,9 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Task 	E</title>
+	<title>Task 	F</title>
 </head>
 <body>
 	<?php 
@@ -15,14 +14,12 @@
 
 		$input = $_POST["text"];
 		$length = strlen($input);
-			$regex = "/[0-9.,]/";
+			$regex = "/[<br>|<\/br>]/";
 		$result = "";
 
 		$j=0;
-		for($i=0;$i<$length;$i++)
-		{
-			if(preg_match($regex, $input[$i]))
-			{
+		for($i=0;$i<$length;$i++){
+			if(!preg_match($regex, $input[$i])){
 				$result[$j] = $input[$i];
 				$j++;
 			}else{
@@ -37,11 +34,11 @@
 		}
 	?>
 
-	<form action="E.php" method="post">
+	<form action="F.php" method="post">
 		<label for="text">Enter Text</label>
 		<br>
-		<input type="text" name="text" id="text">
-		<button type="submit">Remove the nonnumerics</button>
+		<textarea name="text" rows="5" id="text"></textarea> <br>
+		<button type="submit">Remove the new lines</button>
 	</form>
 
 </body>
