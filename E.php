@@ -15,16 +15,18 @@
 
 		$input = $_POST["text"];
 		$length = strlen($input);
-		$regex = "/ /";
-		$result="null";
+			$regex = "/[0-9.,]/";
+		$result = "";
 
 		$j=0;
-		for($i=0;$i<$length;$i++){
-			if(preg_match($regex, $input[$i])){
-				continue;
-			}else{
+		for($i=0;$i<$length;$i++)
+		{
+			if(preg_match($regex, $input[$i]))
+			{
 				$result[$j] = $input[$i];
 				$j++;
+			}else{
+				continue;
 			}
 		}
 
@@ -35,11 +37,11 @@
 		}
 	?>
 
-	<form action="D.php" method="post">
+	<form action="E.php" method="post">
 		<label for="text">Enter Text</label>
 		<br>
 		<input type="text" name="text" id="text">
-		<button type="submit">Remove the whitespaces</button>
+		<button type="submit">Remove the nonnumerics</button>
 	</form>
 
 </body>
